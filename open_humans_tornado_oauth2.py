@@ -12,8 +12,8 @@ class OpenHumansMixin(auth.OAuth2Mixin):
     OpenHumans OAuth Mixin, based on FacebookGraphMixin
     """
 
-    _OAUTH_AUTHORIZE_URL = 'https://openhumans.org/oauth2/authorize'
-    _OAUTH_ACCESS_TOKEN_URL = 'https://openhumans.org/oauth2/access_token'
+    _OAUTH_AUTHORIZE_URL = 'https://openhumans.org/oauth2/authorize/'
+    _OAUTH_ACCESS_TOKEN_URL = 'https://openhumans.org/oauth2/token/'
 
     _API_URL = 'https://openhumans.org/api'
 
