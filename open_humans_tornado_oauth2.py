@@ -53,8 +53,6 @@ class OpenHumansMixin(auth.OAuth2Mixin):
 
             return
 
-        logger.debug('response body: %s', response.body)
-
         args = escape.json_decode(response.body)
 
         if 'error' in args:
@@ -76,19 +74,24 @@ class OpenHumansMixin(auth.OAuth2Mixin):
 
         url = httputil.url_concat(self._API_URL + path, args)
 
-        logger.debug('request to ' + url)
-
         http = httpclient.AsyncHTTPClient()
 
         if body is not None:
             body = escape.json_encode(body)
 
-            logger.debug('body is' + body)
-
-        http.fetch(url,
-                   callback=functools.partial(self._parse_response, callback),
-                   method=method,
-                   body=body)
+            http.fetch(
+                url,
+                callback=functools.partial(self._parse_response, callback),
+                method=method,
+                headers={
+                    'Content-Type': 'application/json'
+                },
+                body=body)
+        else:
+            http.fetch(
+                url,
+                callback=functools.partial(self._parse_response, callback),
+                method=method)
 
     @staticmethod
     def _parse_response(callback, response):
