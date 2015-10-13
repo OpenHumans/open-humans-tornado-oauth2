@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 class OpenHumansMixin(auth.OAuth2Mixin):
     """
-    OpenHumans OAuth Mixin, based on FacebookGraphMixin
+    OpenHumans OAuth2 Mixin, based on FacebookGraphMixin.
     """
 
     _OAUTH_AUTHORIZE_URL = 'https://www.openhumans.org/oauth2/authorize/'
