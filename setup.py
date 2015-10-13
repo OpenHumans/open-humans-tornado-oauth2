@@ -1,8 +1,8 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(name='open-humans-tornado-oauth2',
       py_modules=['open_humans_tornado_oauth2'],
-      version='2.0.0',
+      version='2.1.0',
       description='An Open Humans OAuth2 authentication provider for Tornado',
       author='Beau Gunderson',
       author_email='beau@personalgenomes.org',
